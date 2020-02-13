@@ -7,7 +7,6 @@ function calculateTotalPrice(obj) {
     let totalCost = 0;
     for (let key in obj) {
         totalCost = totalCost + obj[key];
-        key++;
     }
     console.log(`Total price of all items is ${totalCost.toFixed(2)} .`);
 }
