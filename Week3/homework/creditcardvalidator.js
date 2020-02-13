@@ -2,7 +2,6 @@
 /*main function is getting the info from other functions and returns the errors of the
 invalid card number or returns the statement that says card number is valid.*/
 function main(cardNum) {
-    // let errors = [];
     if (isValid(cardNum) === false) {
         console.log(`(${cardNum})`)
         if (checkLength(cardNum) === false) {
@@ -39,7 +38,7 @@ function checkLength(cardNum) {
 function checkSum(cardNum) {
     let sum = 0;
     for (let i = 0; i < cardNum.length; i++) {
-        sum = parseInt(sum) + parseInt(cardNum[i]);
+        sum = sum + parseInt(cardNum[i]);
     }
     if (sum > 16) {
         return true;
@@ -47,7 +46,9 @@ function checkSum(cardNum) {
     return false;
 }
 
-// checking the card number if it has at least 2 different numbers
+/* checking the card number if it has at least 2 different numbers
+.split() method and every() method takes each character of the string into an array 
+then the function checks all the characters if they match with the first one, returns true if all characters same*/
 function allEqualCharacters(cardNum) {
     let characterCheck = cardNum.split('').every(char => char === cardNum[0]);
     if (characterCheck == true) {
@@ -65,9 +66,11 @@ function isEndEven(cardNum) {
     return false;
 }
 
-// checking if the card number is made of only numbers
+/* checking if the card number is made of only numbers
+^ does a match for the first character of the string 
+ \d searches for the digits between 0-9*/
 function onlyNumbers(cardNum) {
-    let isNumOnly = /^\d+$/.test(cardNum); //this method is to check if the items of the variable is only made of numbers if so it returns 'true'.
+    let isNumOnly = /^\d+$/.test(cardNum);
     if (isNumOnly == true) {
         return true;
     }
@@ -95,7 +98,6 @@ function isValid(cardNum) {
 }
 
 
-//main('1000000000006');
 main('9999777788880000'); //valid number example
 main('6666666666661666'); //valid number example
 
